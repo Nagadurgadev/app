@@ -1,0 +1,356 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  }
+  
+  .weather-app {
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  }
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+  }
+  
+  .light-mode {
+  background-image: url('https://source.unsplash.com/1600x900/?nature,day');
+  background-size: cover;
+  background-color: white;
+  color: black;
+  }
+  
+  .dark-mode {
+  background-image: url('https://source.unsplash.com/1600x900/?night,sky');
+  background-size: cover;
+  background-color: #121212;
+  color: white;
+  }
+  
+  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  }
+  
+  button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  }
+  
+  button
+  {
+  background-color: #0056b3;
+  }
+  
+  input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  }
+  
+  input
+  {
+  outline: none;
+  border-color: #007bff;
+  }
+  
+  form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  }
+  
+  .weather-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  }
+  
+  .weather-info {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 250px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .weather-info.clear-sky {
+    background-color: #b3e0ff; /* Light blue for clear sky */
+  }
+  
+  .weather-info.few-clouds {
+    background-color: #f0f0f5; /* Light grey for few clouds */
+  }
+  
+  .weather-info.scattered-clouds {
+    background-color: #d9e4f5; /* Light blue-grey for scattered clouds */
+  }
+  
+  .weather-info.rain {
+    background-color: #a4c2f4; /* Light blue for rain */
+  }
+  
+  .weather-info.thunderstorm {
+    background-color: #535353; /* Dark grey for thunderstorm */
+    color: white;
+  }
+  
+  .weather-info.snow {
+    background-color: #e0f5ff; /* Light cyan for snow */
+  }
+  
+  .weather-info.other-weather {
+    background-color: #e6e6e6; /* Light grey for other weather conditions */
+  }
+  
+  /* Default style */
+  .weather-info.default-icon {
+    /* If no specific condition matches */
+    background-color: rgba(255, 255, 255, 0.1); /* Default background */
+  }
+  
+  
+  .dark-mode .weather-info {
+  background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .weather-info button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  }
+  
+  .weather-info .favorite-button {
+  background-color: #28a745;
+  color: white;
+  }
+  
+  .weather-info .favorite-button
+  {
+  background-color: #218838;
+  }
+  
+  .weather-info .remove-button {
+  background-color: #dc3545;
+  color: white;
+  }
+  
+  .weather-info .remove-button
+  {
+  background-color: #c82333;
+  }
+  
+  .error-message {
+  color: red;
+  text-align:center;
+  }
+  
+  .controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  }
+  
+  .controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  }
+  
+  .controls button
+  {
+  background-color: #0056b3;
+  }
+  
+  .controls label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  }
+  
+  .favorites {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .favorite-city {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .favorite-city:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .favorite-city .city-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .favorite-city .temperature {
+    font-size: 1.1rem;
+  }
+  
+  .forecast-chart {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  }
+  
+  .weather-maps {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  }
+  
+  .weather-maps img {
+  max-width: 100%;
+  height: auto;
+  }
+  
+  .air-quality {
+  margin-top: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  }
+  
+  .severe-alerts {
+  margin-top: 20px;
+  }
+  
+  .weather-recommendations {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  }
+  
+  .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 20px;
+  }
+  
+  .footer p {
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  }
+  .main-heading {
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    color: #4caf50; 
+  }
+  
+  .light-mode .main-heading {
+    color: #4caf50; 
+  }
+  
+  .dark-mode .main-heading {
+    color: #8bc34a; 
+  }
+  .header-icon{
+    margin-left:20px;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+  }
+  
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+  .weather-info {
+  width: 100%;
+  }
+  
+  form {
+  flex-direction: column;
+  }
+  
+  input {
+  margin-right: 0;
+  margin-bottom: 10px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    
+    gap: 5px; 
+  }
+
+.controls button {
+width: 100%;
+}
+
+.controls input[type="checkbox"] {
+  margin-top: 10px; 
+}
+
+header {
+flex-direction: column;
+gap: 10px;
+}
+.favorites {
+  padding: 10px;
+}
+
+.favorite-city {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.favorite-city .city-name {
+  margin-bottom: 5px;
+}
+  }
+
